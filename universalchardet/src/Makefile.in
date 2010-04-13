@@ -22,6 +22,7 @@
 # Contributor(s):
 #          Simon Montagu <smontagu@smontagu.org>
 #          Shy Shalom <shooshX@gmail.com>
+#          Proofpoint, Inc.
 #
 # Alternatively, the contents of this file may be used under the terms of
 # either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -45,63 +46,6 @@ VPATH		= @srcdir@
 include $(DEPTH)/config/autoconf.mk
 
 MODULE		= universalchardet
-LIBRARY_NAME	= universalchardet
-EXPORT_LIBRARY	= 1
-IS_COMPONENT	= 1
-MODULE_NAME	= nsUniversalCharDetModule
-ifneq ($(OS_ARCH),WINNT)
-SHORT_LIBNAME	= ucdet
-endif
-MOZILLA_INTERNAL_API = 1
-
-REQUIRES	= xpcom \
-		  string \
-		  uconv \
-		  chardet \
-		  $(NULL)
-
-PACKAGE_FILE = universalchardet.pkg
-
-CPPSRCS = \
-		CharDistribution.cpp \
-		JpCntx.cpp \
-		LangBulgarianModel.cpp \
-		LangCyrillicModel.cpp \
-		LangGreekModel.cpp \
-		LangHungarianModel.cpp \
-		LangHebrewModel.cpp \
-		nsHebrewProber.cpp \
-		nsCharSetProber.cpp \
-		nsBig5Prober.cpp \
-		nsEUCJPProber.cpp \
-		nsEUCKRProber.cpp \
-		nsEUCTWProber.cpp \
-		nsEscCharsetProber.cpp \
-		nsEscSM.cpp \
-		nsGB2312Prober.cpp \
-		nsMBCSGroupProber.cpp \
-		nsMBCSSM.cpp \
-		nsSBCSGroupProber.cpp \
-		nsSBCharSetProber.cpp \
-		nsSJISProber.cpp \
-		nsUTF8Prober.cpp \
-		nsLatin1Prober.cpp \
-		nsUniversalCharDetModule.cpp \
-		nsUniversalDetector.cpp \
-		nsUdetXPCOMWrapper.cpp \
-               $(NULL)
-
-# Not built on win32. Not sure why not
-ifneq ($(OS_ARCH),WINNT)
-CPPSRCS	+= LangThaiModel.cpp
-endif
-
-EXTRA_DSO_LDOPTS += \
-		$(MOZ_COMPONENT_LIBS) \
-		$(NULL)
+DIRS		= base xpcom
 
 include $(topsrcdir)/config/rules.mk
-
-ifeq ($(OS_ARCH),WINNT)
-DEFINES		+= -D__STDC__
-endif
