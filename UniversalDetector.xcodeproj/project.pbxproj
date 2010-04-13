@@ -128,10 +128,6 @@
 		1B0DDB440A2CB1B30009B697 /* nsSBCSGroupProber.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsSBCSGroupProber.h; sourceTree = "<group>"; };
 		1B0DDB450A2CB1B30009B697 /* nsSJISProber.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = nsSJISProber.cpp; sourceTree = "<group>"; };
 		1B0DDB460A2CB1B30009B697 /* nsSJISProber.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsSJISProber.h; sourceTree = "<group>"; };
-		1B0DDB470A2CB1B30009B697 /* nsUdetXPCOMWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = nsUdetXPCOMWrapper.cpp; sourceTree = "<group>"; };
-		1B0DDB480A2CB1B30009B697 /* nsUdetXPCOMWrapper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsUdetXPCOMWrapper.h; sourceTree = "<group>"; };
-		1B0DDB490A2CB1B30009B697 /* nsUniversalCharDetDll.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsUniversalCharDetDll.h; sourceTree = "<group>"; };
-		1B0DDB4A0A2CB1B30009B697 /* nsUniversalCharDetModule.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = nsUniversalCharDetModule.cpp; sourceTree = "<group>"; };
 		1B0DDB4B0A2CB1B30009B697 /* nsUniversalDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = nsUniversalDetector.cpp; sourceTree = "<group>"; };
 		1B0DDB4C0A2CB1B30009B697 /* nsUniversalDetector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsUniversalDetector.h; sourceTree = "<group>"; };
 		1B0DDB4D0A2CB1B30009B697 /* nsUTF8Prober.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = nsUTF8Prober.cpp; sourceTree = "<group>"; };
@@ -272,6 +268,53 @@
 		1B0DDB170A2CB1B20009B697 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				3D72B809117526FE00854025 /* base */,
+			);
+			name = src;
+			path = src/base;
+			sourceTree = "<group>";
+		};
+		1B0DDB500A2CB1B30009B697 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				1B0DDB530A2CB1B30009B697 /* UniversalChardetTest.cpp */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		1B0DDC1C0A2CC8F60009B697 /* kludge */ = {
+			isa = PBXGroup;
+			children = (
+				1B0DDC1D0A2CC9050009B697 /* nscore.h */,
+				1B0DDC210A2CC9720009B697 /* prtypes.h */,
+				1B0DDC240A2CC9BA0009B697 /* prcpucfg.h */,
+				1B0DDC260A2CCA1A0009B697 /* protypes.h */,
+				1B0DDC280A2CCA5D0009B697 /* prmem.h */,
+				1B0DDC3E0A2CD8BD0009B697 /* nsError.h */,
+				1B0DDC510A2CDA3D0009B697 /* kludge.c */,
+			);
+			path = kludge;
+			sourceTree = "<group>";
+		};
+		1B0DDCAD0A2D0AFD0009B697 /* DetectorTest */ = {
+			isa = PBXGroup;
+			children = (
+				1B0DDCB10A2D0B240009B697 /* DetectorTest.m */,
+			);
+			name = DetectorTest;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* UniversalDetector_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3D72B809117526FE00854025 /* base */ = {
+			isa = PBXGroup;
+			children = (
 				1B0DDB190A2CB1B30009B697 /* Big5Freq.tab */,
 				1B0DDB1A0A2CB1B30009B697 /* CharDistribution.cpp */,
 				1B0DDB1B0A2CB1B30009B697 /* CharDistribution.h */,
@@ -317,54 +360,12 @@
 				1B0DDB440A2CB1B30009B697 /* nsSBCSGroupProber.h */,
 				1B0DDB450A2CB1B30009B697 /* nsSJISProber.cpp */,
 				1B0DDB460A2CB1B30009B697 /* nsSJISProber.h */,
-				1B0DDB470A2CB1B30009B697 /* nsUdetXPCOMWrapper.cpp */,
-				1B0DDB480A2CB1B30009B697 /* nsUdetXPCOMWrapper.h */,
-				1B0DDB490A2CB1B30009B697 /* nsUniversalCharDetDll.h */,
-				1B0DDB4A0A2CB1B30009B697 /* nsUniversalCharDetModule.cpp */,
 				1B0DDB4B0A2CB1B30009B697 /* nsUniversalDetector.cpp */,
 				1B0DDB4C0A2CB1B30009B697 /* nsUniversalDetector.h */,
 				1B0DDB4D0A2CB1B30009B697 /* nsUTF8Prober.cpp */,
 				1B0DDB4E0A2CB1B30009B697 /* nsUTF8Prober.h */,
 			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		1B0DDB500A2CB1B30009B697 /* tests */ = {
-			isa = PBXGroup;
-			children = (
-				1B0DDB530A2CB1B30009B697 /* UniversalChardetTest.cpp */,
-			);
-			path = tests;
-			sourceTree = "<group>";
-		};
-		1B0DDC1C0A2CC8F60009B697 /* kludge */ = {
-			isa = PBXGroup;
-			children = (
-				1B0DDC1D0A2CC9050009B697 /* nscore.h */,
-				1B0DDC210A2CC9720009B697 /* prtypes.h */,
-				1B0DDC240A2CC9BA0009B697 /* prcpucfg.h */,
-				1B0DDC260A2CCA1A0009B697 /* protypes.h */,
-				1B0DDC280A2CCA5D0009B697 /* prmem.h */,
-				1B0DDC3E0A2CD8BD0009B697 /* nsError.h */,
-				1B0DDC510A2CDA3D0009B697 /* kludge.c */,
-			);
-			path = kludge;
-			sourceTree = "<group>";
-		};
-		1B0DDCAD0A2D0AFD0009B697 /* DetectorTest */ = {
-			isa = PBXGroup;
-			children = (
-				1B0DDCB10A2D0B240009B697 /* DetectorTest.m */,
-			);
-			name = DetectorTest;
-			sourceTree = "<group>";
-		};
-		32C88DFF0371C24200C91783 /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				32DBCF5E0370ADEE00C91783 /* UniversalDetector_Prefix.pch */,
-			);
-			name = "Other Sources";
+			name = base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
