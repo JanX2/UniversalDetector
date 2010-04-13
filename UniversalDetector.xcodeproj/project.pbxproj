@@ -37,8 +37,8 @@
 		1B0DDC760A2CDD2E0009B697 /* UniversalDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC740A2CDD2E0009B697 /* UniversalDetector.mm */; };
 		1B0DDCB20A2D0B240009B697 /* DetectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDCB10A2D0B240009B697 /* DetectorTest.m */; };
 		1B0DDCB30A2D0B2E0009B697 /* UniversalDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* UniversalDetector.framework */; };
-		1B0DDD600A2D1AAD0009B697 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D6A5FE840307C02AAC07 /* AppKit.framework */; };
-		1B0DDD630A2D1AC10009B697 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D6A5FE840307C02AAC07 /* AppKit.framework */; };
+		3D724E301174182900CD3CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D724E2F1174182900CD3CBD /* Foundation.framework */; };
+		3D724E4E11741AEE00CD3CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D724E2F1174182900CD3CBD /* Foundation.framework */; };
 		3DBF4F5A0BCD397C00DA401A /* CharDistribution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDB1A0A2CB1B30009B697 /* CharDistribution.cpp */; };
 		3DBF4F5B0BCD397C00DA401A /* JpCntx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDB200A2CB1B30009B697 /* JpCntx.cpp */; };
 		3DBF4F5C0BCD397C00DA401A /* LangBulgarianModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDB220A2CB1B30009B697 /* LangBulgarianModel.cpp */; };
@@ -66,7 +66,6 @@
 		3DBF4F720BCD397C00DA401A /* nsUTF8Prober.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDB4D0A2CB1B30009B697 /* nsUTF8Prober.cpp */; };
 		3DBF4F730BCD397C00DA401A /* kludge.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC510A2CDA3D0009B697 /* kludge.c */; };
 		3DBF4F740BCD397C00DA401A /* UniversalDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC740A2CDD2E0009B697 /* UniversalDetector.mm */; };
-		3DBF4F750BCD398E00DA401A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D6A5FE840307C02AAC07 /* AppKit.framework */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B0DDB140A2CB1B20009B697 /* ChardetInterface.htm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = ChardetInterface.htm; sourceTree = "<group>"; };
 		1B0DDB150A2CB1B20009B697 /* UniversalCharsetDetection.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = UniversalCharsetDetection.doc; sourceTree = "<group>"; };
@@ -151,6 +149,7 @@
 		1B0DDCAB0A2D0AD10009B697 /* DetectorTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DetectorTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B0DDCB10A2D0B240009B697 /* DetectorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectorTest.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* UniversalDetector_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalDetector_Prefix.pch; sourceTree = "<group>"; };
+		3D724E2F1174182900CD3CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DBF4F570BCD396800DA401A /* libuniversaldetector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuniversaldetector.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* UniversalDetector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UniversalDetector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,8 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D724E4E11741AEE00CD3CBD /* Foundation.framework in Frameworks */,
 				1B0DDCB30A2D0B2E0009B697 /* UniversalDetector.framework in Frameworks */,
-				1B0DDD600A2D1AAD0009B697 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +169,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DBF4F750BCD398E00DA401A /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B0DDD630A2D1AC10009B697 /* AppKit.framework in Frameworks */,
+				3D724E301174182900CD3CBD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +245,7 @@
 		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				3D724E2F1174182900CD3CBD /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -668,6 +666,7 @@
 					ppc,
 				);
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -689,6 +688,7 @@
 					ppc,
 				);
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -700,6 +700,156 @@
 				SDKROOT = macosx10.5;
 			};
 			name = Release;
+		};
+		3D724D501174157200CD3CBD /* Debug Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					x86_64,
+					i386,
+					ppc,
+				);
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				SDKROOT = macosx10.5;
+			};
+			name = "Debug Clang";
+		};
+		3D724D511174157200CD3CBD /* Debug Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = UniversalDetector_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				PRODUCT_NAME = UniversalDetector;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = "Debug Clang";
+		};
+		3D724D521174157200CD3CBD /* Debug Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = DetectorTest;
+				ZERO_LINK = NO;
+			};
+			name = "Debug Clang";
+		};
+		3D724D531174157200CD3CBD /* Debug Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = universaldetector;
+			};
+			name = "Debug Clang";
+		};
+		3D724D541174157B00CD3CBD /* Release Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					x86_64,
+					i386,
+					ppc,
+				);
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				SDKROOT = macosx10.5;
+			};
+			name = "Release Clang";
+		};
+		3D724D551174157B00CD3CBD /* Release Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = UniversalDetector_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				PRODUCT_NAME = UniversalDetector;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = "Release Clang";
+		};
+		3D724D561174157B00CD3CBD /* Release Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = DetectorTest;
+				ZERO_LINK = NO;
+			};
+			name = "Release Clang";
+		};
+		3D724D571174157B00CD3CBD /* Release Clang */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = universaldetector;
+			};
+			name = "Release Clang";
 		};
 		3DBF501C0BCD399D00DA401A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -727,7 +877,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B0DDCAF0A2D0AFD0009B697 /* Debug */,
+				3D724D521174157200CD3CBD /* Debug Clang */,
 				1B0DDCB00A2D0AFD0009B697 /* Release */,
+				3D724D561174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -736,7 +888,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91AE08733DA50010E9CD /* Debug */,
+				3D724D511174157200CD3CBD /* Debug Clang */,
 				1DEB91AF08733DA50010E9CD /* Release */,
+				3D724D551174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -745,7 +899,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91B208733DA50010E9CD /* Debug */,
+				3D724D501174157200CD3CBD /* Debug Clang */,
 				1DEB91B308733DA50010E9CD /* Release */,
+				3D724D541174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -754,7 +910,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DBF501C0BCD399D00DA401A /* Debug */,
+				3D724D531174157200CD3CBD /* Debug Clang */,
 				3DBF501D0BCD399D00DA401A /* Release */,
+				3D724D571174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
