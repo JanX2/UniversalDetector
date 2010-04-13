@@ -1,0 +1,19 @@
+This a branch-off of the UniversalDetector.framework source code taken from the Perian SVN using the following procedure:
+
+git svn clone http://svn.perian.org/trunk/
+clone --no-hardlinks trunk UniversalDetector
+cd UniversalDetector
+git filter-branch --subdirectory-filter UniversalDetector HEAD -- --all
+git reset --hard
+git gc --aggressive
+git prune
+git remote rm origin
+
+The procedure above is based on
+http://stackoverflow.com/questions/359424/detach-subdirectory-into-separate-git-repository
+and keeps the history intact.
+
+I have put this up with the intention of collecting the various efforts of maintaining of and changes to this framework's source code here on github. 
+
+The core of the frameworks is the (LGPL) Mozilla automatic charset detection library. You can read more about it here:
+http://www.mozilla.org/projects/intl/detectorsrc.html
