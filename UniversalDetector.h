@@ -4,8 +4,8 @@
 
 @interface UniversalDetector:NSObject
 {
-	void *detectorptr;
-	NSString *charset;
+	void *detectorPtr;
+	NSString *charsetName;
 	float confidence;
 }
 

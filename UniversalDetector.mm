@@ -37,7 +37,8 @@ class wrappedUniversalDetector:public nsUniversalDetector
 
 				for (PRInt32 i = 0; i < NUM_OF_CHARSET_PROBERS; i++)
 				{
-					if (mCharSetProbers[i]) {
+					if (mCharSetProbers[i])
+					{
 						proberConfidence = mCharSetProbers[i]->GetConfidence();
 						if (proberConfidence > maxProberConfidence)
 						{
@@ -47,8 +48,10 @@ class wrappedUniversalDetector:public nsUniversalDetector
 					}
 				}
 
-				confidence=maxProberConfidence;
-				return mCharSetProbers[maxProber]->GetCharSetName();
+				if (mCharSetProbers[maxProber]) {
+					confidence=maxProberConfidence;
+					return mCharSetProbers[maxProber]->GetCharSetName();
+				}
 			}
 			break;
 
@@ -89,22 +92,22 @@ class wrappedUniversalDetector:public nsUniversalDetector
 {
 	if(self=[super init])
 	{
-		detectorptr=(void *)new wrappedUniversalDetector;
-		charset=nil;
+		detectorPtr=(void *)new wrappedUniversalDetector;
+		charsetName=nil;
 	}
 	return self;
 }
 
 -(void)dealloc
 {
-	delete (wrappedUniversalDetector *)detectorptr;
-	[charset release];
+	delete (wrappedUniversalDetector *)detectorPtr;
+	[charsetName release];
 	[super dealloc];
 }
 
 -(void)finalize
 {
-	delete (wrappedUniversalDetector *)detectorptr;
+	delete (wrappedUniversalDetector *)detectorPtr;
 	[super finalize];
 }
 
@@ -115,37 +118,37 @@ class wrappedUniversalDetector:public nsUniversalDetector
 
 -(void)analyzeBytes:(const char *)data length:(int)len
 {
-	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorptr;
+	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
 
 	if(detector->done()) return;
 
 	detector->HandleData(data,len);
-	[charset release];
-	charset=nil;
+	[charsetName release];
+	charsetName=nil;
 }
 
 -(void)reset
 {
-	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorptr;
+	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
 	detector->reset();
 }
 
 -(BOOL)done
 {
-	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorptr;
+	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
 	return detector->done()?YES:NO;
 }
 
 -(NSString *)MIMECharset
 {
-	if(!charset)
+	if(!charsetName)
 	{
-		wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorptr;
+		wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
 		const char *cstr=detector->charset(confidence);
 		if(!cstr) return nil;
-		charset=[[NSString alloc] initWithUTF8String:cstr];
+		charsetName=[[NSString alloc] initWithUTF8String:cstr];
 	}
-	return charset;
+	return charsetName;
 }
 
 -(NSStringEncoding)encoding
@@ -159,13 +162,13 @@ class wrappedUniversalDetector:public nsUniversalDetector
 
 -(float)confidence
 {
-	if(!charset) [self MIMECharset];
+	if(!charsetName) [self MIMECharset];
 	return confidence;
 }
 
 -(void)debugDump
 {
-    wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorptr;
+    wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
     return detector->debug();
 }
 
