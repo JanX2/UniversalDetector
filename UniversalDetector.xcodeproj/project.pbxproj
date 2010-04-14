@@ -852,6 +852,75 @@
 			};
 			name = "Release Clang";
 		};
+		3D72B92A1175420200854025 /* Release 10.4 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = 4.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				SDKROOT = macosx10.4;
+			};
+			name = "Release 10.4";
+		};
+		3D72B92B1175420200854025 /* Release 10.4 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = UniversalDetector_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				PRODUCT_NAME = UniversalDetector;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = "Release 10.4";
+		};
+		3D72B92C1175420200854025 /* Release 10.4 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = DetectorTest;
+				ZERO_LINK = NO;
+			};
+			name = "Release 10.4";
+		};
+		3D72B92D1175420200854025 /* Release 10.4 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = universaldetector;
+			};
+			name = "Release 10.4";
+		};
 		3DBF501C0BCD399D00DA401A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -880,6 +949,7 @@
 				1B0DDCAF0A2D0AFD0009B697 /* Debug */,
 				3D724D521174157200CD3CBD /* Debug Clang */,
 				1B0DDCB00A2D0AFD0009B697 /* Release */,
+				3D72B92C1175420200854025 /* Release 10.4 */,
 				3D724D561174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -891,6 +961,7 @@
 				1DEB91AE08733DA50010E9CD /* Debug */,
 				3D724D511174157200CD3CBD /* Debug Clang */,
 				1DEB91AF08733DA50010E9CD /* Release */,
+				3D72B92B1175420200854025 /* Release 10.4 */,
 				3D724D551174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -902,6 +973,7 @@
 				1DEB91B208733DA50010E9CD /* Debug */,
 				3D724D501174157200CD3CBD /* Debug Clang */,
 				1DEB91B308733DA50010E9CD /* Release */,
+				3D72B92A1175420200854025 /* Release 10.4 */,
 				3D724D541174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -913,6 +985,7 @@
 				3DBF501C0BCD399D00DA401A /* Debug */,
 				3D724D531174157200CD3CBD /* Debug Clang */,
 				3DBF501D0BCD399D00DA401A /* Release */,
+				3D72B92D1175420200854025 /* Release 10.4 */,
 				3D724D571174157B00CD3CBD /* Release Clang */,
 			);
 			defaultConfigurationIsVisible = 0;
