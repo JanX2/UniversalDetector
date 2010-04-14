@@ -37,11 +37,13 @@ class wrappedUniversalDetector:public nsUniversalDetector
 
 				for (PRInt32 i = 0; i < NUM_OF_CHARSET_PROBERS; i++)
 				{
-					proberConfidence = mCharSetProbers[i]->GetConfidence();
-					if (proberConfidence > maxProberConfidence)
-					{
-						maxProberConfidence = proberConfidence;
-						maxProber = i;
+					if (mCharSetProbers[i]) {
+						proberConfidence = mCharSetProbers[i]->GetConfidence();
+						if (proberConfidence > maxProberConfidence)
+						{
+							maxProberConfidence = proberConfidence;
+							maxProber = i;
+						}
 					}
 				}
 
