@@ -8,18 +8,21 @@ int main(int argc,char **argv)
 
 	UniversalDetector *detector=[UniversalDetector detector];
 
+	NSString *str = nil;
+	
 	for (int i = 1; i < argc; i++)
 	{
-		NSData *data=[NSData dataWithContentsOfFile:[NSString stringWithUTF8String:argv[i]]];
+		NSData *data = [NSData dataWithContentsOfFile:[NSString stringWithUTF8String:argv[i]]];
 		[detector analyzeData:data];
-	}
 
-	NSString *str = [NSString stringWithFormat:@"\"%@\" (%s) confidence: %.1f%%\n", 
-					 [NSString localizedNameOfStringEncoding:[detector encoding]], 
-					 [[detector MIMECharset] UTF8String], 
-					 ([detector confidence]*100.0f) 
-					 ];
-	printf("%s", [str cStringUsingEncoding:NSUTF8StringEncoding]);
+		str = [NSString stringWithFormat:@"\"%@\" (%s) confidence: %.1f%%\n", 
+			   [NSString localizedNameOfStringEncoding:[detector encoding]], 
+			   [[detector MIMECharset] UTF8String], 
+			   ([detector confidence]*100.0f) 
+			   ];
+		printf("%s", [str cStringUsingEncoding:NSUTF8StringEncoding]);
+		
+	}
 
 	[pool release];
 	return 0;
