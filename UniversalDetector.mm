@@ -6,6 +6,8 @@
 #import "nsUniversalDetector.h"
 #import "nsCharSetProber.h"
 
+// You are welcome to fix this ObjC wrapper to allow initializing nsUniversalDetector with a non-zero value for aLanguageFilter!
+
 class wrappedUniversalDetector:public nsUniversalDetector
 {
 	public:
