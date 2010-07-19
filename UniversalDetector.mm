@@ -1,98 +1,18 @@
-#define uint32 CSSM_uint32
 #import "UniversalDetector.h"
-#undef uint32
-
-#import "nscore.h"
-#import "nsUniversalDetector.h"
-#import "nsCharSetProber.h"
-
-// You are welcome to fix this ObjC wrapper to allow initializing nsUniversalDetector with a non-zero value for aLanguageFilter!
-
-class wrappedUniversalDetector:public nsUniversalDetector
-{
-	public:
-	void Report(const char* aCharset) {}
-
-	const char *charset(float &confidence)
-	{
-		if(!mGotData)
-		{
-			confidence=0;
-			return 0;
-		}
-
-		if(mDetectedCharset)
-		{
-			confidence=1;
-			return mDetectedCharset;
-		}
-
-		switch(mInputState)
-		{
-			case eHighbyte:
-			{
-				float proberConfidence;
-				float maxProberConfidence = (float)0.0;
-				PRInt32 maxProber = 0;
-
-				for (PRInt32 i = 0; i < NUM_OF_CHARSET_PROBERS; i++)
-				{
-					if (mCharSetProbers[i])
-					{
-						proberConfidence = mCharSetProbers[i]->GetConfidence();
-						if (proberConfidence > maxProberConfidence)
-						{
-							maxProberConfidence = proberConfidence;
-							maxProber = i;
-						}
-					}
-				}
-
-				if (mCharSetProbers[maxProber]) {
-					confidence=maxProberConfidence;
-					return mCharSetProbers[maxProber]->GetCharSetName();
-				}
-			}
-			break;
-
-			case ePureAscii:
-				confidence=0;
-				return "US-ASCII";
-		}
-
-		confidence=0;
-		return 0;
-	}
-
-	bool done()
-	{
-		if(mDetectedCharset) return true;
-		return false;
-	}
-    
-    void debug()
-    {
-        for (PRInt32 i = 0; i < NUM_OF_CHARSET_PROBERS; i++)
-        {
-            // If no data was received the array might stay filled with nulls
-            // the way it was initialized in the constructor.
-            if (mCharSetProbers[i])
-                mCharSetProbers[i]->DumpStatus();
-        }
-    }
-
-	void reset() { Reset(); }
-};
-
-
+#import "WrappedUniversalDetector.h"
 
 @implementation UniversalDetector
+
++(UniversalDetector *)detector
+{
+	return [[[UniversalDetector alloc] init] autorelease];
+}
 
 -(id)init
 {
 	if(self=[super init])
 	{
-		detectorPtr=(void *)new wrappedUniversalDetector;
+		detectorPtr=AllocUniversalDetector();
 		charsetName=nil;
 	}
 	return self;
@@ -100,15 +20,19 @@ class wrappedUniversalDetector:public nsUniversalDetector
 
 -(void)dealloc
 {
-	delete (wrappedUniversalDetector *)detectorPtr;
+	FreeUniversalDetector(detectorPtr);
 	[charsetName release];
 	[super dealloc];
 }
 
--(void)finalize
+-(void)analyzeContentsOfFile:(NSString *)path
 {
-	delete (wrappedUniversalDetector *)detectorPtr;
-	[super finalize];
+	NSData *data = [[NSData alloc] initWithContentsOfMappedFile:path];
+
+	if (data) {
+		[self analyzeBytes:(const char *)[data bytes] length:[data length]];
+	}
+	[data release];
 }
 
 -(void)analyzeData:(NSData *)data
@@ -118,33 +42,26 @@ class wrappedUniversalDetector:public nsUniversalDetector
 
 -(void)analyzeBytes:(const char *)data length:(int)len
 {
-	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
-
-	if(detector->done()) return;
-
-	detector->HandleData(data,len);
+	UniversalDetectorHandleData(detectorPtr, data, len);
 	[charsetName release];
 	charsetName=nil;
 }
 
 -(void)reset
 {
-	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
-	detector->reset();
+	UniversalDetectorReset(detectorPtr);
 }
 
 -(BOOL)done
 {
-	wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
-	return detector->done()?YES:NO;
+	return UniversalDetectorDone(detectorPtr);
 }
 
 -(NSString *)MIMECharset
 {
 	if(!charsetName)
 	{
-		wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
-		const char *cstr=detector->charset(confidence);
+		const char *cstr=UniversalDetectorCharset(detectorPtr, &confidence);
 		if(!cstr) return nil;
 		charsetName=[[NSString alloc] initWithUTF8String:cstr];
 	}
@@ -155,8 +72,14 @@ class wrappedUniversalDetector:public nsUniversalDetector
 {
 	NSString *mimecharset=[self MIMECharset];
 	if(!mimecharset) return 0;
+
 	CFStringEncoding cfenc=CFStringConvertIANACharSetNameToEncoding((CFStringRef)mimecharset);
 	if(cfenc==kCFStringEncodingInvalidId) return 0;
+
+	// UniversalDetector detects CP949 but returns "EUC-KR" because CP949 lacks an IANA name.
+	// Kludge to make strings decode properly anyway.
+	if(cfenc==kCFStringEncodingEUC_KR) cfenc=kCFStringEncodingDOSKorean;
+
 	return CFStringConvertEncodingToNSStringEncoding(cfenc);
 }
 
@@ -166,15 +89,12 @@ class wrappedUniversalDetector:public nsUniversalDetector
 	return confidence;
 }
 
+/*
 -(void)debugDump
 {
     wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
     return detector->debug();
 }
-
-+(UniversalDetector *)detector
-{
-	return [[[UniversalDetector alloc] init] autorelease];
-}
+*/
 
 @end

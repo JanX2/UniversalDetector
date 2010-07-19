@@ -1,7 +1,5 @@
 #import <Foundation/Foundation.h>
 
-#define UniversalDetector SubUniversalDetector
-
 @interface UniversalDetector:NSObject
 {
 	void *detectorPtr;
@@ -21,7 +19,7 @@
 -(NSStringEncoding)encoding;
 -(float)confidence;
 
--(void)debugDump;
+//-(void)debugDump;
 
 +(UniversalDetector *)detector;
 

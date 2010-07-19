@@ -45,11 +45,6 @@
 #include "nsEscCharsetProber.h"
 #include "nsLatin1Prober.h"
 
-// I am adding this here, because I don't know enough C++ to get the wrapper to pass a value for aLanguageFilter. 
-nsUniversalDetector::nsUniversalDetector() : mLanguageFilter(0)
-{
-}
-
 nsUniversalDetector::nsUniversalDetector(PRUint32 aLanguageFilter)
 {
   mDone = PR_FALSE;
