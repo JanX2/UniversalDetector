@@ -40,7 +40,7 @@
 
 #include "nscore.h"
 
-#define DEBUG_chardet // Uncomment this for debug dump.
+//#define DEBUG_chardet // Uncomment this for debug dump.
 
 typedef enum {
   eDetecting = 0,   //We are still detecting, no sure answer yet, but caller can ask for confidence.
@@ -52,7 +52,7 @@ typedef enum {
 
 class nsCharSetProber {
 public:
-  virtual ~nsCharSetProber() {};
+  virtual ~nsCharSetProber() {}
   virtual const char* GetCharSetName() = 0;
   virtual nsProbingState HandleData(const char* aBuf, PRUint32 aLen) = 0;
   virtual nsProbingState GetState(void) = 0;
