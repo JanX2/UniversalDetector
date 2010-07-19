@@ -34,7 +34,7 @@
 		1B0DDB8D0A2CB1B30009B697 /* nsUTF8Prober.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDB4D0A2CB1B30009B697 /* nsUTF8Prober.cpp */; };
 		1B0DDC520A2CDA3D0009B697 /* kludge.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC510A2CDA3D0009B697 /* kludge.c */; };
 		1B0DDC750A2CDD2E0009B697 /* UniversalDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0DDC730A2CDD2D0009B697 /* UniversalDetector.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B0DDC760A2CDD2E0009B697 /* UniversalDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC740A2CDD2E0009B697 /* UniversalDetector.mm */; };
+		1B0DDC760A2CDD2E0009B697 /* UniversalDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC740A2CDD2E0009B697 /* UniversalDetector.m */; };
 		1B0DDCB20A2D0B240009B697 /* DetectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDCB10A2D0B240009B697 /* DetectorTest.m */; };
 		1B0DDCB30A2D0B2E0009B697 /* UniversalDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* UniversalDetector.framework */; };
 		3D4F0C3C11F42E3C00603CE3 /* WrappedUniversalDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F0C3A11F42E3C00603CE3 /* WrappedUniversalDetector.cpp */; };
@@ -69,7 +69,7 @@
 		3DBF4F710BCD397C00DA401A /* nsUniversalDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDB4B0A2CB1B30009B697 /* nsUniversalDetector.cpp */; };
 		3DBF4F720BCD397C00DA401A /* nsUTF8Prober.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDB4D0A2CB1B30009B697 /* nsUTF8Prober.cpp */; };
 		3DBF4F730BCD397C00DA401A /* kludge.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC510A2CDA3D0009B697 /* kludge.c */; };
-		3DBF4F740BCD397C00DA401A /* UniversalDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC740A2CDD2E0009B697 /* UniversalDetector.mm */; };
+		3DBF4F740BCD397C00DA401A /* UniversalDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0DDC740A2CDD2E0009B697 /* UniversalDetector.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -145,7 +145,7 @@
 		1B0DDC3E0A2CD8BD0009B697 /* nsError.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsError.h; sourceTree = "<group>"; };
 		1B0DDC510A2CDA3D0009B697 /* kludge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kludge.c; sourceTree = "<group>"; };
 		1B0DDC730A2CDD2D0009B697 /* UniversalDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalDetector.h; sourceTree = "<group>"; };
-		1B0DDC740A2CDD2E0009B697 /* UniversalDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UniversalDetector.mm; sourceTree = "<group>"; };
+		1B0DDC740A2CDD2E0009B697 /* UniversalDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalDetector.m; sourceTree = "<group>"; };
 		1B0DDCAB0A2D0AD10009B697 /* DetectorTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DetectorTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B0DDCB10A2D0B240009B697 /* DetectorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectorTest.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* UniversalDetector_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalDetector_Prefix.pch; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				1B0DDC730A2CDD2D0009B697 /* UniversalDetector.h */,
-				1B0DDC740A2CDD2E0009B697 /* UniversalDetector.mm */,
+				1B0DDC740A2CDD2E0009B697 /* UniversalDetector.m */,
 				3D4F0C3A11F42E3C00603CE3 /* WrappedUniversalDetector.cpp */,
 				3D4F0C3B11F42E3C00603CE3 /* WrappedUniversalDetector.h */,
 			);
@@ -522,7 +522,7 @@
 				3DBF4F710BCD397C00DA401A /* nsUniversalDetector.cpp in Sources */,
 				3DBF4F720BCD397C00DA401A /* nsUTF8Prober.cpp in Sources */,
 				3DBF4F730BCD397C00DA401A /* kludge.c in Sources */,
-				3DBF4F740BCD397C00DA401A /* UniversalDetector.mm in Sources */,
+				3DBF4F740BCD397C00DA401A /* UniversalDetector.m in Sources */,
 				3D4F0C3E11F42E3C00603CE3 /* WrappedUniversalDetector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,7 +557,7 @@
 				1B0DDB8B0A2CB1B30009B697 /* nsUniversalDetector.cpp in Sources */,
 				1B0DDB8D0A2CB1B30009B697 /* nsUTF8Prober.cpp in Sources */,
 				1B0DDC520A2CDA3D0009B697 /* kludge.c in Sources */,
-				1B0DDC760A2CDD2E0009B697 /* UniversalDetector.mm in Sources */,
+				1B0DDC760A2CDD2E0009B697 /* UniversalDetector.m in Sources */,
 				3D4F0C3C11F42E3C00603CE3 /* WrappedUniversalDetector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
