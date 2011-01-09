@@ -6,7 +6,7 @@ int main(int argc,char **argv)
 {
 	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
 
-	UniversalDetector *detector=[UniversalDetector detector];
+	UniversalDetector *detector = [[UniversalDetector alloc] init];
 
 	NSString *str = nil;
 	
@@ -23,6 +23,8 @@ int main(int argc,char **argv)
 		printf("%s", [str cStringUsingEncoding:NSUTF8StringEncoding]);
 		
 	}
+	
+	[detector release];
 
 	[pool release];
 	return 0;

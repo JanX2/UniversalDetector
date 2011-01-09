@@ -3,17 +3,13 @@
 
 @implementation UniversalDetector
 
-+(UniversalDetector *)detector
-{
-	return [[[UniversalDetector alloc] init] autorelease];
-}
-
 -(id)init
 {
 	if(self=[super init])
 	{
-		detectorPtr=AllocUniversalDetector();
-		charsetName=nil;
+		detectorPtr = AllocUniversalDetector();
+		charsetName = nil;
+		confidence  = 0;
 	}
 	return self;
 }
@@ -88,13 +84,5 @@
 	if(!charsetName) [self MIMECharset];
 	return confidence;
 }
-
-/*
--(void)debugDump
-{
-    wrappedUniversalDetector *detector=(wrappedUniversalDetector *)detectorPtr;
-    return detector->debug();
-}
-*/
 
 @end
