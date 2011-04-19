@@ -5,7 +5,9 @@
 
 -(id)init
 {
-	if(self=[super init])
+	self = [super init];
+	
+	if(self)
 	{
 		detectorPtr = AllocUniversalDetector();
 		charsetName = nil;

@@ -58,6 +58,8 @@ class wrappedUniversalDetector:public nsUniversalDetector
 			case ePureAscii:
 				confidence=1.0;
 				return "UTF-8";
+			default:
+				break;
 		}
 
 		confidence=0;
