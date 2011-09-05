@@ -2,3 +2,7 @@ build/
 *.mode1v3
 *.pbxuser
 .DS_Store
+
+/UniversalDetector.xcodeproj/project.xcworkspace/xcuserdata/NILTSH.xcuserdatad/UserInterfaceState.xcuserstate
+/UniversalDetector.xcodeproj/project.xcworkspace/xcuserdata/
+/DerivedData/
