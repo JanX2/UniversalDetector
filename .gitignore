@@ -1,8 +1,18 @@
-build/
-*.mode1v3
+# Xcode
+build/*
 *.pbxuser
-.DS_Store
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
 
-/UniversalDetector.xcodeproj/project.xcworkspace/xcuserdata/NILTSH.xcuserdatad/UserInterfaceState.xcuserstate
-/UniversalDetector.xcodeproj/project.xcworkspace/xcuserdata/
-/DerivedData/
+## Ignore incredibly annoying .DS_Store files
+.DS_Store
