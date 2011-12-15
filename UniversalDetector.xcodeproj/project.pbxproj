@@ -41,7 +41,6 @@
 		3D4F0C3D11F42E3C00603CE3 /* WrappedUniversalDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D4F0C3B11F42E3C00603CE3 /* WrappedUniversalDetector.h */; };
 		3D724E301174182900CD3CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D724E2F1174182900CD3CBD /* Foundation.framework */; };
 		3D724E4E11741AEE00CD3CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D724E2F1174182900CD3CBD /* Foundation.framework */; };
-		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1B0DDB140A2CB1B20009B697 /* ChardetInterface.htm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = ChardetInterface.htm; sourceTree = "<group>"; };
 		1B0DDB150A2CB1B20009B697 /* UniversalCharsetDetection.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = UniversalCharsetDetection.doc; sourceTree = "<group>"; };
 		1B0DDB190A2CB1B30009B697 /* Big5Freq.tab */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Big5Freq.tab; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				8DC2EF5A0486A6940098B216 /* Info.plist */,
-				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -395,7 +392,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "UniversalDetector" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -423,7 +420,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,17 +478,6 @@
 			targetProxy = 1B0DDCBA0A2D0C490009B697 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				089C1667FE841158C02AAC07 /* English */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1B0DDCAF0A2D0AFD0009B697 /* Debug */ = {
