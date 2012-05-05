@@ -4,17 +4,17 @@
 
 int main(int argc,char **argv)
 {
-	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
-
-	UniversalDetector *detector = [[UniversalDetector alloc] init];
-
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	UniversalDetector *detector = [UniversalDetector new];
+	
 	NSString *str = nil;
 	
 	for (int i = 1; i < argc; i++)
 	{
 		NSData *data = [NSData dataWithContentsOfFile:[NSString stringWithUTF8String:argv[i]]];
 		[detector analyzeData:data];
-
+		
 		str = [NSString stringWithFormat:@"\"%@\" (%s) confidence: %.1f%%\n", 
 			   [NSString localizedNameOfStringEncoding:[detector encoding]], 
 			   [[detector MIMECharset] UTF8String], 
@@ -25,7 +25,7 @@ int main(int argc,char **argv)
 	}
 	
 	[detector release];
-
+	
 	[pool release];
 	return 0;
 }
