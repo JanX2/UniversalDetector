@@ -107,7 +107,6 @@
 		1B0DDB4C0A2CB1B30009B697 /* nsUniversalDetector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsUniversalDetector.h; sourceTree = "<group>"; };
 		1B0DDB4D0A2CB1B30009B697 /* nsUTF8Prober.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = nsUTF8Prober.cpp; sourceTree = "<group>"; };
 		1B0DDB4E0A2CB1B30009B697 /* nsUTF8Prober.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = nsUTF8Prober.h; sourceTree = "<group>"; };
-		1B0DDB530A2CB1B30009B697 /* UniversalChardetTest.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = UniversalChardetTest.cpp; sourceTree = "<group>"; };
 		1B0DDC1D0A2CC9050009B697 /* nscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nscore.h; sourceTree = "<group>"; };
 		1B0DDC210A2CC9720009B697 /* prtypes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = prtypes.h; sourceTree = "<group>"; };
 		1B0DDC240A2CC9BA0009B697 /* prcpucfg.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = prcpucfg.h; sourceTree = "<group>"; };
@@ -223,7 +222,6 @@
 			children = (
 				1B0DDB130A2CB1B20009B697 /* doc */,
 				1B0DDB170A2CB1B20009B697 /* src */,
-				1B0DDB500A2CB1B30009B697 /* tests */,
 			);
 			path = universalchardet;
 			sourceTree = "<group>";
@@ -244,14 +242,6 @@
 			);
 			name = src;
 			path = src/base;
-			sourceTree = "<group>";
-		};
-		1B0DDB500A2CB1B30009B697 /* tests */ = {
-			isa = PBXGroup;
-			children = (
-				1B0DDB530A2CB1B30009B697 /* UniversalChardetTest.cpp */,
-			);
-			path = tests;
 			sourceTree = "<group>";
 		};
 		1B0DDC1C0A2CC8F60009B697 /* kludge */ = {
