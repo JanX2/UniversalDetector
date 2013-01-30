@@ -1,39 +1,7 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is mozilla.org code.
- *
- * The Initial Developer of the Original Code is
- * Netscape Communications Corporation.
- * Portions created by the Initial Developer are Copyright (C) 1998
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #include "nsCodingStateMachine.h"
 
 /*
@@ -44,7 +12,7 @@ Modification from frank tang's original work:
 
 // BIG5 
 
-static const PRUint32 BIG5_cls [ 256 / 8 ] = {
+static const uint32_t BIG5_cls [ 256 / 8 ] = {
 //PCK4BITS(0,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,1,1),  // 00 - 07    //allow 0x00 as legal value
 PCK4BITS(1,1,1,1,1,1,0,0),  // 08 - 0f 
@@ -81,13 +49,13 @@ PCK4BITS(3,3,3,3,3,3,3,0)   // f8 - ff
 };
 
 
-static const PRUint32 BIG5_st [ 3] = {
+static const uint32_t BIG5_st [ 3] = {
 PCK4BITS(eError,eStart,eStart,     3,eError,eError,eError,eError),//00-07 
 PCK4BITS(eError,eError,eItsMe,eItsMe,eItsMe,eItsMe,eItsMe,eError),//08-0f 
 PCK4BITS(eError,eStart,eStart,eStart,eStart,eStart,eStart,eStart) //10-17 
 };
 
-static const PRUint32 Big5CharLenTable[] = {0, 1, 1, 2, 0};
+static const uint32_t Big5CharLenTable[] = {0, 1, 1, 2, 0};
 
 SMModel const Big5SMModel = {
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, BIG5_cls },
@@ -97,7 +65,7 @@ SMModel const Big5SMModel = {
   "Big5",
 };
 
-static const PRUint32 EUCJP_cls [ 256 / 8 ] = {
+static const uint32_t EUCJP_cls [ 256 / 8 ] = {
 //PCK4BITS(5,4,4,4,4,4,4,4),  // 00 - 07 
 PCK4BITS(4,4,4,4,4,4,4,4),  // 00 - 07 
 PCK4BITS(4,4,4,4,4,4,5,5),  // 08 - 0f 
@@ -134,7 +102,7 @@ PCK4BITS(0,0,0,0,0,0,0,5)   // f8 - ff
 };
 
 
-static const PRUint32 EUCJP_st [ 5] = {
+static const uint32_t EUCJP_st [ 5] = {
 PCK4BITS(     3,     4,     3,     5,eStart,eError,eError,eError),//00-07 
 PCK4BITS(eError,eError,eError,eError,eItsMe,eItsMe,eItsMe,eItsMe),//08-0f 
 PCK4BITS(eItsMe,eItsMe,eStart,eError,eStart,eError,eError,eError),//10-17 
@@ -142,7 +110,7 @@ PCK4BITS(eError,eError,eStart,eError,eError,eError,     3,eError),//18-1f
 PCK4BITS(     3,eError,eError,eError,eStart,eStart,eStart,eStart) //20-27 
 };
 
-static const PRUint32 EUCJPCharLenTable[] = {2, 2, 2, 3, 1, 0};
+static const uint32_t EUCJPCharLenTable[] = {2, 2, 2, 3, 1, 0};
 
 const SMModel EUCJPSMModel = {
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, EUCJP_cls },
@@ -152,7 +120,7 @@ const SMModel EUCJPSMModel = {
   "EUC-JP",
 };
 
-static const PRUint32 EUCKR_cls [ 256 / 8 ] = {
+static const uint32_t EUCKR_cls [ 256 / 8 ] = {
 //PCK4BITS(0,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,0,0),  // 08 - 0f 
@@ -189,12 +157,12 @@ PCK4BITS(2,2,2,2,2,2,2,0)   // f8 - ff
 };
 
 
-static const PRUint32 EUCKR_st [ 2] = {
+static const uint32_t EUCKR_st [ 2] = {
 PCK4BITS(eError,eStart,     3,eError,eError,eError,eError,eError),//00-07 
 PCK4BITS(eItsMe,eItsMe,eItsMe,eItsMe,eError,eError,eStart,eStart) //08-0f 
 };
 
-static const PRUint32 EUCKRCharLenTable[] = {0, 1, 2, 0};
+static const uint32_t EUCKRCharLenTable[] = {0, 1, 2, 0};
 
 const SMModel EUCKRSMModel = {
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, EUCKR_cls },
@@ -204,7 +172,7 @@ const SMModel EUCKRSMModel = {
   "EUC-KR",
 };
 
-static const PRUint32 EUCTW_cls [ 256 / 8 ] = {
+static const uint32_t EUCTW_cls [ 256 / 8 ] = {
 //PCK4BITS(0,2,2,2,2,2,2,2),  // 00 - 07 
 PCK4BITS(2,2,2,2,2,2,2,2),  // 00 - 07 
 PCK4BITS(2,2,2,2,2,2,0,0),  // 08 - 0f 
@@ -241,7 +209,7 @@ PCK4BITS(3,3,3,3,3,3,3,0)   // f8 - ff
 };
 
 
-static const PRUint32 EUCTW_st [ 6] = {
+static const uint32_t EUCTW_st [ 6] = {
 PCK4BITS(eError,eError,eStart,     3,     3,     3,     4,eError),//00-07 
 PCK4BITS(eError,eError,eError,eError,eError,eError,eItsMe,eItsMe),//08-0f 
 PCK4BITS(eItsMe,eItsMe,eItsMe,eItsMe,eItsMe,eError,eStart,eError),//10-17 
@@ -250,7 +218,7 @@ PCK4BITS(     5,eError,eError,eError,eStart,eError,eStart,eStart),//20-27
 PCK4BITS(eStart,eError,eStart,eStart,eStart,eStart,eStart,eStart) //28-2f 
 };
 
-static const PRUint32 EUCTWCharLenTable[] = {0, 0, 1, 2, 2, 2, 3};
+static const uint32_t EUCTWCharLenTable[] = {0, 0, 1, 2, 2, 2, 3};
 
 const SMModel EUCTWSMModel = {
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, EUCTW_cls },
@@ -261,7 +229,7 @@ const SMModel EUCTWSMModel = {
 };
 
 /* obsolete GB2312 by gb18030
-static PRUint32 GB2312_cls [ 256 / 8 ] = {
+static uint32_t GB2312_cls [ 256 / 8 ] = {
 //PCK4BITS(0,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,0,0),  // 08 - 0f 
@@ -298,12 +266,12 @@ PCK4BITS(2,2,2,2,2,2,2,0)   // f8 - ff
 };
 
 
-static PRUint32 GB2312_st [ 2] = {
+static uint32_t GB2312_st [ 2] = {
 PCK4BITS(eError,eStart,     3,eError,eError,eError,eError,eError),//00-07 
 PCK4BITS(eItsMe,eItsMe,eItsMe,eItsMe,eError,eError,eStart,eStart) //08-0f 
 };
 
-static const PRUint32 GB2312CharLenTable[] = {0, 1, 2, 0};
+static const uint32_t GB2312CharLenTable[] = {0, 1, 2, 0};
 
 SMModel GB2312SMModel = {
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, GB2312_cls },
@@ -316,7 +284,7 @@ SMModel GB2312SMModel = {
 
 // the following state machine data was created by perl script in 
 // intl/chardet/tools. It should be the same as in PSM detector.
-static const PRUint32 GB18030_cls [ 256 / 8 ] = {
+static const uint32_t GB18030_cls [ 256 / 8 ] = {
 PCK4BITS(1,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,0,0),  // 08 - 0f 
 PCK4BITS(1,1,1,1,1,1,1,1),  // 10 - 17 
@@ -352,7 +320,7 @@ PCK4BITS(6,6,6,6,6,6,6,0)   // f8 - ff
 };
 
 
-static const PRUint32 GB18030_st [ 6] = {
+static const uint32_t GB18030_st [ 6] = {
 PCK4BITS(eError,eStart,eStart,eStart,eStart,eStart,     3,eError),//00-07 
 PCK4BITS(eError,eError,eError,eError,eError,eError,eItsMe,eItsMe),//08-0f 
 PCK4BITS(eItsMe,eItsMe,eItsMe,eItsMe,eItsMe,eError,eError,eStart),//10-17 
@@ -366,7 +334,7 @@ PCK4BITS(eError,eError,eStart,eStart,eStart,eStart,eStart,eStart) //28-2f
 // it is used for frequency analysis only, and we are validing 
 // each code range there as well. So it is safe to set it to be 
 // 2 here. 
-static const PRUint32 GB18030CharLenTable[] = {0, 1, 1, 1, 1, 1, 2};
+static const uint32_t GB18030CharLenTable[] = {0, 1, 1, 1, 1, 1, 2};
 
 const SMModel GB18030SMModel = {
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, GB18030_cls },
@@ -378,7 +346,7 @@ const SMModel GB18030SMModel = {
 
 // sjis
 
-static const PRUint32 SJIS_cls [ 256 / 8 ] = {
+static const uint32_t SJIS_cls [ 256 / 8 ] = {
 //PCK4BITS(0,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,0,0),  // 08 - 0f 
@@ -417,13 +385,13 @@ PCK4BITS(4,4,4,4,4,0,0,0)   // f8 - ff
 };
 
 
-static const PRUint32 SJIS_st [ 3] = {
+static const uint32_t SJIS_st [ 3] = {
 PCK4BITS(eError,eStart,eStart,     3,eError,eError,eError,eError),//00-07 
 PCK4BITS(eError,eError,eError,eError,eItsMe,eItsMe,eItsMe,eItsMe),//08-0f 
 PCK4BITS(eItsMe,eItsMe,eError,eError,eStart,eStart,eStart,eStart) //10-17 
 };
 
-static const PRUint32 SJISCharLenTable[] = {0, 1, 1, 2, 0, 0};
+static const uint32_t SJISCharLenTable[] = {0, 1, 1, 2, 0, 0};
 
 const SMModel SJISSMModel = {
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, SJIS_cls },
@@ -434,7 +402,7 @@ const SMModel SJISSMModel = {
 };
 
 
-static const PRUint32 UTF8_cls [ 256 / 8 ] = {
+static const uint32_t UTF8_cls [ 256 / 8 ] = {
 //PCK4BITS(0,1,1,1,1,1,1,1),  // 00 - 07 
 PCK4BITS(1,1,1,1,1,1,1,1),  // 00 - 07  //allow 0x00 as a legal value
 PCK4BITS(1,1,1,1,1,1,0,0),  // 08 - 0f 
@@ -471,7 +439,7 @@ PCK4BITS(12,13,13,13,14,15,0,0)   // f8 - ff
 };
 
 
-static const PRUint32 UTF8_st [ 26] = {
+static const uint32_t UTF8_st [ 26] = {
 PCK4BITS(eError,eStart,eError,eError,eError,eError,     12,     10),//00-07 
 PCK4BITS(     9,     11,     8,     7,     6,     5,     4,     3),//08-0f 
 PCK4BITS(eError,eError,eError,eError,eError,eError,eError,eError),//10-17 
@@ -500,7 +468,7 @@ PCK4BITS(eError,eError,eStart,eStart,eStart,eStart,eError,eError),//c0-c7
 PCK4BITS(eError,eError,eError,eError,eError,eError,eError,eError) //c8-cf 
 };
 
-static const PRUint32 UTF8CharLenTable[] = {0, 1, 0, 0, 0, 0, 2, 3, 
+static const uint32_t UTF8CharLenTable[] = {0, 1, 0, 0, 0, 0, 2, 3, 
                             3, 3, 4, 4, 5, 5, 6, 6 };
 
 const SMModel UTF8SMModel = {
