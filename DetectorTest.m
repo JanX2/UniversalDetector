@@ -6,7 +6,6 @@ int main(int argc,char **argv)
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	NSString *str = nil;
 	NSError *error = nil;
 	
 	for (int i = 1; i < argc; i++)
@@ -20,18 +19,30 @@ int main(int argc,char **argv)
 		NSData *data = [NSData dataWithContentsOfFile:filePath
 											  options:0
 												error:&error];
+		
+		NSString *str = nil;
+
 		if (data == nil) {
 			str = [NSString stringWithFormat:@"%@\n\t%@", fileName, error];
-			printf("%s", [str UTF8String]);
-			continue;
+		}
+
+		if (data.length == 0) {
+			str = [NSString stringWithFormat:@"%@\n\t%@", fileName, @"Error: empty file!"];
 		}
 		
+		if (str) {
+			printf("%s\n\n", [str UTF8String]);
+			continue;
+		}
+
 		[detector analyzeData:data];
+		NSString *MIMECharsetName = [detector MIMECharset];
+		NSStringEncoding encoding = [detector encoding];
 		
 		str = [NSString stringWithFormat:@"%@\n\t\"%@\" (%@) confidence: %.1f%%",
 			   fileName,
-			   [NSString localizedNameOfStringEncoding:[detector encoding]], 
-			   [detector MIMECharset], 
+			   (encoding != 0) ? [NSString localizedNameOfStringEncoding:encoding] : @"UNKNOWN",
+			   (MIMECharsetName != nil) ? MIMECharsetName : @"UNKNOWN",
 			   ([detector confidence] * 100.0f) 
 			   ];
 		printf("%s\n\n", [str UTF8String]);
