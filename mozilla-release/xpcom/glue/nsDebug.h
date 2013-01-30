@@ -6,6 +6,7 @@
 #ifndef nsDebug_h___
 #define nsDebug_h___
 
+#ifndef OS_X_FRAMEWORK_BUILD
 #ifndef nscore_h___
 #include "nscore.h"
 #endif
@@ -20,6 +21,8 @@
 #ifdef DEBUG
 #include "prprf.h"
 #endif
+
+#endif /* OS_X_FRAMEWORK_BUILD */
 
 #ifdef DEBUG
 
@@ -152,6 +155,7 @@
 
 #endif /* ! DEBUG */
 
+#ifndef OS_X_FRAMEWORK_BUILD
 /******************************************************************************
 ** Macros for static assertions.  These are used by the sixgill tool.
 ** When the tool is not running these macros are no-ops.
@@ -366,5 +370,7 @@ printf_stderr(const char *fmt, ...);
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* OS_X_FRAMEWORK_BUILD */
 
 #endif /* nsDebug_h___ */

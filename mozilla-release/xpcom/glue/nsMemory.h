@@ -6,6 +6,8 @@
 #ifndef nsMemory_h__
 #define nsMemory_h__
 
+#ifndef OS_X_FRAMEWORK_BUILD
+
 #include "nsXPCOM.h"
 #include "nsIMemory.h"
 
@@ -116,6 +118,8 @@ public:
 #define NS_FREE_XPCOM_ISUPPORTS_POINTER_ARRAY(size, array)                    \
     NS_FREE_XPCOM_POINTER_ARRAY((size), (array), NS_IF_RELEASE)
 
+#endif /* OS_X_FRAMEWORK_BUILD */
+
 /**
  * Helpful array length function for calculating the length of a
  * statically declared array.
@@ -123,6 +127,8 @@ public:
 
 #define NS_ARRAY_LENGTH(array_) \
   (sizeof(array_)/sizeof(array_[0]))
+
+#ifndef OS_X_FRAMEWORK_BUILD
 
 /**
  * A macro, NS_ALIGNMENT_OF(t_) that determines the alignment
@@ -148,6 +154,8 @@ enum nsAssignmentType {
     NS_ASSIGNMENT_DEPEND, // copy by reference
     NS_ASSIGNMENT_ADOPT   // copy by reference (take ownership of resource)
 };
+
+#endif /* OS_X_FRAMEWORK_BUILD */
 
 #endif // nsMemory_h__
 

@@ -5,3 +5,11 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
 #endif
+
+#include <stdint.h>
+
+#ifndef HAS_MOVE_SEMANTICS // Crude C++11 detection.
+#	define nullptr	0
+#endif
+
+#define OS_X_FRAMEWORK_BUILD	1
