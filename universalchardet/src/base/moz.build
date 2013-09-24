@@ -1,0 +1,40 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+MODULE = 'universalchardet_s'
+
+CPP_SOURCES += [
+    'CharDistribution.cpp',
+    'JpCntx.cpp',
+    'LangBulgarianModel.cpp',
+    'LangCyrillicModel.cpp',
+    'LangGreekModel.cpp',
+    'LangHebrewModel.cpp',
+    'LangHungarianModel.cpp',
+    'LangThaiModel.cpp',
+    'nsBig5Prober.cpp',
+    'nsCharSetProber.cpp',
+    'nsEUCJPProber.cpp',
+    'nsEUCKRProber.cpp',
+    'nsEUCTWProber.cpp',
+    'nsEscCharsetProber.cpp',
+    'nsEscSM.cpp',
+    'nsGB2312Prober.cpp',
+    'nsHebrewProber.cpp',
+    'nsLatin1Prober.cpp',
+    'nsMBCSGroupProber.cpp',
+    'nsMBCSSM.cpp',
+    'nsSBCSGroupProber.cpp',
+    'nsSBCharSetProber.cpp',
+    'nsSJISProber.cpp',
+    'nsUTF8Prober.cpp',
+    'nsUniversalDetector.cpp',
+]
+
+LIBRARY_NAME = 'universalchardet_s'
+
+LIBXUL_LIBRARY = True
+

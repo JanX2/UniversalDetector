@@ -223,8 +223,11 @@
 				1B0DDB130A2CB1B20009B697 /* doc */,
 				1B0DDB170A2CB1B20009B697 /* src */,
 			);
+			indentWidth = 2;
 			path = universalchardet;
 			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
 		};
 		1B0DDB130A2CB1B20009B697 /* doc */ = {
 			isa = PBXGroup;

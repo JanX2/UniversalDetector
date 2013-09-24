@@ -17,6 +17,7 @@
 
 #include "nsXPCOM.h"
 #include "mozilla/Assertions.h"
+#include "mozilla/Likely.h"
 
 #ifdef DEBUG
 #include "prprf.h"
@@ -252,7 +253,7 @@
 
 #define NS_ENSURE_TRUE(x, ret)                                \
   do {                                                        \
-    if (NS_UNLIKELY(!(x))) {                                  \
+    if (MOZ_UNLIKELY(!(x))) {                                 \
        NS_WARNING("NS_ENSURE_TRUE(" #x ") failed");           \
        return ret;                                            \
     }                                                         \
@@ -263,7 +264,7 @@
 
 #define NS_ENSURE_TRUE_VOID(x)                                \
   do {                                                        \
-    if (NS_UNLIKELY(!(x))) {                                  \
+    if (MOZ_UNLIKELY(!(x))) {                                 \
        NS_WARNING("NS_ENSURE_TRUE(" #x ") failed");           \
        return;                                                \
     }                                                         \
@@ -352,7 +353,9 @@
   #define NS_CheckThreadSafe(owningThread, msg)
 #else
   #define NS_CheckThreadSafe(owningThread, msg)                 \
-    MOZ_ASSERT(owningThread == PR_GetCurrentThread(), msg)
+    if (MOZ_UNLIKELY(owningThread != PR_GetCurrentThread())) {  \
+      MOZ_CRASH(msg);                                           \
+    }
 #endif
 
 /* When compiling the XPCOM Glue on Windows, we pretend that it's going to
