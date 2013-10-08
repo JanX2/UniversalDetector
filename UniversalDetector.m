@@ -28,14 +28,14 @@
 	NSData *data = [[NSData alloc] initWithContentsOfMappedFile:path];
 
 	if (data) {
-		[self analyzeBytes:(const char *)[data bytes] length:[data length]];
+		[self analyzeBytes:(const char *)[data bytes] length:(int)[data length]];
 	}
 	[data release];
 }
 
 -(void)analyzeData:(NSData *)data
 {
-	[self analyzeBytes:(const char *)[data bytes] length:[data length]];
+	[self analyzeBytes:(const char *)[data bytes] length:(int)[data length]];
 }
 
 -(void)analyzeBytes:(const char *)data length:(int)len
