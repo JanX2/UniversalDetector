@@ -78,7 +78,9 @@
 	// Kludge to make strings decode properly anyway.
 	if(cfenc==kCFStringEncodingEUC_KR) cfenc=kCFStringEncodingDOSKorean;
 
-	return CFStringConvertEncodingToNSStringEncoding(cfenc);
+	NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(cfenc);
+	
+	return encoding;
 }
 
 -(float)confidence
