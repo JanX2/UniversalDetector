@@ -44,7 +44,7 @@ int main(int argc,char **argv)
 		NSString *MIMECharsetName = [detector MIMECharset];
 		NSStringEncoding encoding = [detector encoding];
 		
-		str = [NSString stringWithFormat:@"%@\n\t\"%@\" (%@) confidence: %.1f%%",
+		str = [NSString stringWithFormat:@"%@\n" "\t" "\"%@\" (%@)\n" "\t" "confidence:% 6.1f%%",
 			   fileName,
 			   (encoding != 0) ? [NSString localizedNameOfStringEncoding:encoding] : @"UNKNOWN",
 			   (MIMECharsetName != nil) ? MIMECharsetName : @"UNKNOWN",
