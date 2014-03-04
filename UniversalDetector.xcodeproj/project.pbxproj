@@ -41,6 +41,7 @@
 		3D4F0C3D11F42E3C00603CE3 /* WrappedUniversalDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D4F0C3B11F42E3C00603CE3 /* WrappedUniversalDetector.h */; };
 		3D724E301174182900CD3CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D724E2F1174182900CD3CBD /* Foundation.framework */; };
 		3D724E4E11741AEE00CD3CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D724E2F1174182900CD3CBD /* Foundation.framework */; };
+		3D81E2B318C5F92C00834BCA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D81E2B218C5F92C00834BCA /* AppKit.framework */; };
 		3D8275CD16B943C100061FD9 /* nsMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8275CB16B943C100061FD9 /* nsMemory.h */; };
 		3D8275D616B946F100061FD9 /* nsDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8275D516B946F100061FD9 /* nsDebug.h */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		3D4F0C3A11F42E3C00603CE3 /* WrappedUniversalDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WrappedUniversalDetector.cpp; sourceTree = "<group>"; };
 		3D4F0C3B11F42E3C00603CE3 /* WrappedUniversalDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrappedUniversalDetector.h; sourceTree = "<group>"; };
 		3D724E2F1174182900CD3CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3D81E2B218C5F92C00834BCA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3D8275CB16B943C100061FD9 /* nsMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsMemory.h; sourceTree = "<group>"; };
 		3D8275D516B946F100061FD9 /* nsDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsDebug.h; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D81E2B318C5F92C00834BCA /* AppKit.framework in Frameworks */,
 				3D724E4E11741AEE00CD3CBD /* Foundation.framework in Frameworks */,
 				1B0DDCB30A2D0B2E0009B697 /* UniversalDetector.framework in Frameworks */,
 			);
@@ -161,6 +164,7 @@
 		0867D691FE84028FC02AAC07 /* UniversalCharDet */ = {
 			isa = PBXGroup;
 			children = (
+				3D81E2B218C5F92C00834BCA /* AppKit.framework */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				3D8275C716B943C100061FD9 /* mozilla-release */,
 				1B0DDB110A2CB1B20009B697 /* universalchardet */,
