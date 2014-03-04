@@ -20,6 +20,11 @@ int main(int argc,char **argv)
 											  options:0
 												error:&error];
 		
+		if (data == nil) {
+			NSLog(@"%@", error);
+			continue;
+		}
+		
 		NSString *str = nil;
 
 		if (data == nil) {
