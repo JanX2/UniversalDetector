@@ -7,6 +7,9 @@ int main(int argc,char **argv)
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
+	[[NSUserDefaults standardUserDefaults] setBool:YES
+											forKey:UniversalDetectorUseMacRomanHeuristic];
+	
 	NSError *error = nil;
 	
 	for (int i = 1; i < argc; i++)

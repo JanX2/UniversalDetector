@@ -1,6 +1,10 @@
 #import "UniversalDetector.h"
 #import "WrappedUniversalDetector.h"
 
+
+NSString * const	UniversalDetectorUseMacRomanHeuristic			= @"UniversalDetectorUseMacRomanHeuristic";
+
+
 @implementation UniversalDetector
 
 -(id)init
@@ -41,6 +45,39 @@
 -(void)analyzeBytes:(const char *)data length:(int)len
 {
 	UniversalDetectorHandleData(detectorPtr, data, len);
+	
+	BOOL useMacRomanHeuristic = [[NSUserDefaults standardUserDefaults] boolForKey:UniversalDetectorUseMacRomanHeuristic];
+
+	if (useMacRomanHeuristic) {
+		// Search for a carriage return (cr) without a following newline.
+		// We do this to determine, if the data could possibly be MacRoman.
+		const size_t searchWindowSize = 4096;
+		char *crPtr = memchr(data, '\r', MIN(len, searchWindowSize));
+		if (crPtr == NULL) {
+			possiblyMacRoman = NO;
+		}
+		else {
+			const int lastIndex = len - 1;
+			int crIndex = (crPtr - data);
+			
+			// Check, if we are at least one byte before the end.
+			if (crIndex < lastIndex) {
+				if (data[crIndex+1] == '\n') {
+					possiblyMacRoman = NO;
+				}
+				else {
+					possiblyMacRoman = YES;
+				}
+			}
+			else {
+				possiblyMacRoman = YES;
+			}
+		}
+	}
+	else {
+		possiblyMacRoman = NO;
+	}
+	
 	[charsetName release];
 	charsetName=nil;
 }
@@ -81,6 +118,12 @@
 	if(cfenc==kCFStringEncodingShiftJIS) cfenc=kCFStringEncodingDOSJapanese;
 
 	NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(cfenc);
+	
+	if (possiblyMacRoman &&
+		(encoding == NSWindowsCP1252StringEncoding ||
+		 encoding == NSShiftJISStringEncoding)) {
+			encoding = NSMacOSRomanStringEncoding;
+	}
 	
 	return encoding;
 }
