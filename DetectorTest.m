@@ -103,5 +103,6 @@ int main(int argc,char **argv)
 	}
 	
 	[pool release];
-	return 0;
+	
+	return EXIT_SUCCESS;
 }
