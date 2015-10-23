@@ -4,6 +4,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UniversalDetector:NSObject
 
++(instancetype)detector;
++(NSArray<NSString*> *)possibleMIMECharsets;
+
 -(instancetype)init NS_DESIGNATED_INITIALIZER;
 
 -(void)analyzeContentsOfFile:(NSString *)path;
