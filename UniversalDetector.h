@@ -1,20 +1,21 @@
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UniversalDetector:NSObject
-{
-	void *detectorPtr;
-	NSString *charsetName;
-	float confidence;
-}
+
+-(instancetype)init NS_DESIGNATED_INITIALIZER;
 
 -(void)analyzeContentsOfFile:(NSString *)path;
 -(void)analyzeData:(NSData *)data;
 -(void)analyzeBytes:(const char *)data length:(int)len;
 -(void)reset;
 
--(BOOL)done;
--(NSString *)MIMECharset;
--(NSStringEncoding)encoding;
--(float)confidence;
+@property (nonatomic, readonly, getter=isDone) BOOL done;
+@property (nonatomic, copy, readonly, nullable) NSString *MIMECharset;
+@property (readonly, nonatomic) NSStringEncoding encoding;
+@property (readonly) float confidence;
 
 @end
+
+NS_ASSUME_NONNULL_END
