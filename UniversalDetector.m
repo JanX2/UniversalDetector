@@ -25,7 +25,7 @@
 
 -(void)analyzeContentsOfFile:(NSString *)path
 {
-	NSData *data = [[NSData alloc] initWithContentsOfMappedFile:path];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:NULL];
 
 	if (data) {
 		[self analyzeBytes:(const char *)[data bytes] length:(int)[data length]];
