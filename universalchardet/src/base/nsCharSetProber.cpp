@@ -41,7 +41,7 @@ bool nsCharSetProber::FilterWithoutEnglishLetters(const char* aBuf, uint32_t aLe
   if (meetMSB && curPtr > prevPtr) 
     while (prevPtr < curPtr) *newptr++ = *prevPtr++;  
 
-  newLen = newptr - *newBuf;
+  newLen = (PRUint32)(newptr - *newBuf);
 
   return true;
 }
@@ -86,7 +86,7 @@ bool nsCharSetProber::FilterWithEnglishLetters(const char* aBuf, uint32_t aLen, 
     while (prevPtr < curPtr)
       *newptr++ = *prevPtr++;  
 
-  newLen = newptr - *newBuf;
+  newLen = (PRUint32)(newptr - *newBuf);
 
   return true;
 }
