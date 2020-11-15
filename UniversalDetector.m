@@ -58,7 +58,7 @@ NSString * const	UniversalDetectorUseMacRomanHeuristic			= @"UniversalDetectorUs
 		}
 		else {
 			const int lastIndex = len - 1;
-			int crIndex = (crPtr - data);
+			ptrdiff_t crIndex = (crPtr - data);
 			
 			// Check, if we are at least one byte before the end.
 			if (crIndex < lastIndex) {
